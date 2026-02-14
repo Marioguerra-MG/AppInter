@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treinador Colorado</title>
+
+  <link rel="stylesheet" href="/css/index.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Treinador Colorado</h1>
+</header>
+
+<section class="controls">
+  <select id="formationSelect">
+    <option value="4-4-2">4-4-2</option>
+    <option value="4-3-3">4-3-3</option>
+    <option value="3-5-2">3-5-2</option>
+  </select>
+
+  <select id="playerSelect">
+    <option value="">Selecione um jogador</option>
+  </select>
+
+  <button id="generateBtn">Baixar escalação</button>
+</section>
+
+<section id="fieldContainer">
+  <div id="field">
+    <div class="formation-label"></div>
+
+    <div class="center-line"></div>
+    <div class="center-circle"></div>
+    <div class="area-top"></div>
+    <div class="area-bottom"></div>
+  </div>
+</section>
+
+<script src="/js/index.js" defer></script>
+</body>
+</html>
