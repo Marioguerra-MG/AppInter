@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Monte sua escalação agora!
         </p>
         <p style="color:#E31B22; font-size:32px; margin-top:15px;">
-          treinadorcolorado.com
+          app-inter.vercel.app/
         </p>
       </div>
     `;
