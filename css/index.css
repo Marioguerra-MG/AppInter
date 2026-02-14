@@ -123,6 +123,7 @@ button {
   background: #E31B22;
   border-radius: 50%;
   color: white;
+  
   display: flex;
   align-items: center;
   justify-content: center;

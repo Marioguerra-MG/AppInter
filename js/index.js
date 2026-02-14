@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p style="color:white; font-size:38px; font-weight:bold; margin:0;">
           Monte sua escalação agora!
         </p>
-        <p style="color:#E31B22; font-size:32px; margin-top:15px;">
+        <p style="color: #000000; font-size:32px; margin-top:15px;">
           app-inter.vercel.app/
         </p>
       </div>
