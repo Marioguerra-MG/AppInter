@@ -224,131 +224,131 @@ document.addEventListener("DOMContentLoaded", () => {
 
   generateBtn.addEventListener("click", async () => {
 
-  if (typeof html2canvas === "undefined") {
-    alert("html2canvas não carregou!");
-    return;
-  }
+    if (typeof html2canvas === "undefined") {
+      alert("html2canvas não carregou!");
+      return;
+    }
 
-  try {
+    try {
+      // Criar container de exportação
+      const exportContainer = document.createElement("div");
 
-    // Criar container de exportação
-    const exportContainer = document.createElement("div");
+      // 📱 Story vertical
+      exportContainer.style.width = "1080px";
+      exportContainer.style.height = "1920px";
+      exportContainer.style.padding = "60px 40px";
+      exportContainer.style.boxSizing = "border-box";
 
-    // 📱 Dimensões STORY
-    exportContainer.style.width = "1080px";
-    exportContainer.style.height = "1920px";
-    exportContainer.style.padding = "60px 40px";
-    exportContainer.style.boxSizing = "border-box";
-    exportContainer.style.background = `
-      radial-gradient(circle at top center, rgba(255,255,255,0.15), transparent 40%),
-      radial-gradient(circle at bottom center, rgba(99, 99, 99, 0.6), transparent 70%),
-      linear-gradient(180deg, #c8102e 0%, #b93045 100%)
-    `;
+      exportContainer.style.background = `
+        radial-gradient(circle at top center, rgba(255,255,255,0.15), transparent 40%),
+        radial-gradient(circle at bottom center, rgba(0,0,0,0.4), transparent 70%),
+        linear-gradient(180deg, #c8102e 0%, #b93045 100%)
+      `;
 
-    exportContainer.style.display = "flex";
-    exportContainer.style.flexDirection = "column";
-    exportContainer.style.alignItems = "center";
-    exportContainer.style.justifyContent = "space-between";
-    exportContainer.style.fontFamily = "Arial, sans-serif";
-    exportContainer.style.position = "relative";
+      exportContainer.style.display = "flex";
+      exportContainer.style.flexDirection = "column";
+      exportContainer.style.alignItems = "center";
+      exportContainer.style.justifyContent = "space-between";
+      exportContainer.style.fontFamily = "Arial, sans-serif";
+      exportContainer.style.position = "relative";
 
-    // 🔥 Cabeçalho
-    const title = document.createElement("h1");
-    title.innerText = "TREINADOR COLORADO";
-    title.style.color = "white";
-    title.style.fontSize = "70px";
-    title.style.letterSpacing = "3px";
-    title.style.margin = "0";
-    title.style.textAlign = "center";
+      // 🔥 Cabeçalho
+      const title = document.createElement("h1");
+      title.innerText = "TREINADOR COLORADO";
+      title.style.color = "white";
+      title.style.fontSize = "70px";
+      title.style.letterSpacing = "3px";
+      title.style.margin = "0";
+      title.style.textAlign = "center";
 
-    const formationText = document.createElement("div");
-    formationText.innerText = `FORMAÇÃO ${formationSelect.value}`;
-    formationText.style.color = "#FFD700";
-    formationText.style.fontSize = "42px";
-    formationText.style.fontWeight = "bold";
-    formationText.style.marginTop = "15px";
+      const formationText = document.createElement("div");
+      formationText.innerText = `FORMAÇÃO ${formationSelect.value}`;
+      formationText.style.color = "#FFD700";
+      formationText.style.fontSize = "42px";
+      formationText.style.fontWeight = "bold";
+      formationText.style.marginTop = "15px";
 
-    const header = document.createElement("div");
-    header.style.textAlign = "center";
-    header.appendChild(title);
-    header.appendChild(formationText);
+      const header = document.createElement("div");
+      header.style.textAlign = "center";
+      header.appendChild(title);
+      header.appendChild(formationText);
 
-    // 🔥 Clonar campo
-    const fieldClone = field.cloneNode(true);
+      // 🔥 Clonar campo
+      const fieldClone = field.cloneNode(true);
 
-    // 🔥 Aumentar jogadores só na imagem
-    const players = fieldClone.querySelectorAll(".player-circle");
-    players.forEach(player => {
-      player.style.width = "100px";
-      player.style.height = "100px";
-      player.style.fontSize = "40px";
-      player.style.borderWidth = "4px";
-    });
+      // 🔥 Aumentar jogadores
+      fieldClone.querySelectorAll(".player-circle").forEach(player => {
+        player.style.width = "100px";
+        player.style.height = "100px";
+        player.style.fontSize = "40px";
+        player.style.borderWidth = "4px";
+      });
 
-    // 🔥 Aumentar nomes dos jogadores
-    const names = fieldClone.querySelectorAll(".player-name");
-    names.forEach(name => {
-      name.style.fontSize = "28px";
-      name.style.marginTop = "10px";
-      name.style.fontWeight = "600";
-      name.style.textShadow = "0 4px 8px rgba(0,0,0,0.8)";
-      name.style.letterSpacing = "1px";
-    });
+      // 🔥 Aumentar nomes
+      fieldClone.querySelectorAll(".player-name").forEach(name => {
+        name.style.fontSize = "28px";
+        name.style.marginTop = "10px";
+        name.style.fontWeight = "600";
+        name.style.textShadow = "0 4px 8px rgba(0,0,0,0.8)";
+        name.style.letterSpacing = "1px";
+      });
 
-    fieldClone.style.width = "880px";
-    fieldClone.style.maxWidth = "100%";
-    fieldClone.style.boxShadow = "0 30px 80px rgba(0,0,0,0.7)";
-    fieldClone.style.borderRadius = "25px";
+      fieldClone.style.width = "880px";
+      fieldClone.style.maxWidth = "100%";
+      fieldClone.style.boxShadow = "0 30px 80px rgba(0,0,0,0.7)";
+      fieldClone.style.borderRadius = "25px";
 
-    // 🔥 Footer / CTA
-    const footer = document.createElement("div");
-    footer.innerHTML = `
-      <div style="text-align:center;">
-        <p style="color:white; font-size:38px; font-weight:bold; margin:0;">
-          Monte sua escalação agora!
-        </p>
-        <p style="color: #000000; font-size:32px; margin-top:15px;">
-          app-inter.vercel.app/
-        </p>
-      </div>
-    `;
+      // 🔥 Footer / CTA
+      const footer = document.createElement("div");
+      footer.innerHTML = `
+        <div style="text-align:center;">
+          <p style="color:white; font-size:38px; font-weight:bold; margin:0;">
+            Monte sua escalação agora!
+          </p>
+          <p style="color: #000000; font-size:32px; margin-top:15px;">
+            app-inter.vercel.app/
+          </p>
+        </div>
+      `;
 
-    // 🔥 Marca d'água
-    const watermark = document.createElement("div");
-    watermark.innerText = "Treinador Colorado";
-    watermark.style.position = "absolute";
-    watermark.style.bottom = "40px";
-    watermark.style.right = "40px";
-    watermark.style.color = "rgba(255,255,255,0.15)";
-    watermark.style.fontSize = "36px";
-    watermark.style.fontWeight = "bold";
-    watermark.style.letterSpacing = "2px";
+      // 🔥 Marca d'água
+      const watermark = document.createElement("div");
+      watermark.innerText = "Treinador Colorado";
+      watermark.style.position = "absolute";
+      watermark.style.bottom = "40px";
+      watermark.style.right = "40px";
+      watermark.style.color = "rgba(255,255,255,0.15)";
+      watermark.style.fontSize = "36px";
+      watermark.style.fontWeight = "bold";
+      watermark.style.letterSpacing = "2px";
 
-    // Montar container
-    exportContainer.appendChild(header);
-    exportContainer.appendChild(fieldClone);
-    exportContainer.appendChild(footer);
-    exportContainer.appendChild(watermark);
+      // Montar container
+      exportContainer.appendChild(header);
+      exportContainer.appendChild(fieldClone);
+      exportContainer.appendChild(footer);
+      exportContainer.appendChild(watermark);
 
-    document.body.appendChild(exportContainer);
+      document.body.appendChild(exportContainer);
 
-    // 🔥 Gerar canvas (scale 1 = leve para celular)
-    const canvas = await html2canvas(exportContainer, {
-      scale: 1,
-      useCORS: true
-    });
+      // 🔥 Gerar canvas nítido
+      const canvas = await html2canvas(exportContainer, {
+        scale: 2, // deixa nítido
+        useCORS: true
+      });
 
-    // 🔥 Exportar JPEG (leve)
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/jpeg", 0.85);
-    link.download = "treinador-colorado-story.jpg";
-    link.click();
+      // 🔥 Exportar JPEG
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/jpeg", 0.85);
+      link.download = "treinador-colorado-story.jpg";
+      link.click();
 
-    document.body.removeChild(exportContainer);
+      document.body.removeChild(exportContainer);
 
-  } catch (error) {
-    console.error("Erro ao gerar imagem:", error);
-  }
+    } catch (error) {
+      console.error("Erro ao gerar imagem:", error);
+    }
+
+  });
 
 });
-});
+
